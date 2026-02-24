@@ -1,0 +1,40 @@
+/* Background */
+body{
+    background:linear-gradient(to right,#dfe9f3,#ffffff);
+    font-family: Arial;
+}
+
+/* Header */
+h1{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* Navigation */
+a{
+    text-decoration:none;
+    color:white;
+    background:#e67e22;
+    padding:10px;
+    border-radius:5px;
+    margin:5px;
+}
+
+a:hover{
+    background:#27ae60;
+}
+
+/* Content Box */
+p, ul{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+/* Section headings */
+h2{
+    color:#34495e;
+}

@@ -1,0 +1,82 @@
+/* ===== BODY BACKGROUND ===== */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    background: linear-gradient(to right,#f1f1f1,#ffffff);
+}
+
+/* ===== HEADER ===== */
+h1{
+    background:black;
+    color:white;
+    padding:15px;
+    letter-spacing:2px;
+}
+
+/* ===== NAVIGATION ===== */
+nav{
+    background:#333;
+    padding:10px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ffcc00;
+}
+
+/* ===== CONTENT BOX ===== */
+.container{
+    background:white;
+    width:85%;
+    margin:20px auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px gray;
+}
+
+/* ===== TABLE STYLE ===== */
+table{
+    border-collapse:collapse;
+    background:white;
+}
+
+th{
+    background:black;
+    color:white;
+    padding:10px;
+}
+
+td{
+    padding:10px;
+}
+
+/* ===== FORM ===== */
+input, textarea{
+    width:90%;
+    padding:8px;
+}
+
+input[type="submit"]{
+    background:black;
+    color:white;
+    border:none;
+    padding:10px;
+}
+
+input[type="submit"]:hover{
+    background:#444;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:black;
+    color:white;
+    padding:10px;
+    margin-top:20px;
+}
