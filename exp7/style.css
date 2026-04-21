@@ -1,0 +1,108 @@
+/* ===== GLOBAL ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* ===== HEADINGS ===== */
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* ===== BUTTON GROUP ===== */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* ===== BUTTON STYLE ===== */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.3);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+/* Header */
+th {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Rows */
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+}
+
+/* Hover effect */
+tr:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* ===== RESULT BOX ===== */
+#result {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.4);
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #00ffcc;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}

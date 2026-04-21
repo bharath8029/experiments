@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Contact Form</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #1d2b64, #f8cdda);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        backdrop-filter: blur(15px);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 25px;
+        width: 360px;
+        color: white;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .field {
+        margin-bottom: 12px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 5px;
+        outline: none;
+        background: rgba(255,255,255,0.2);
+        color: white;
+    }
+
+    input::placeholder, textarea::placeholder {
+        color: #eee;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        margin-top: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .submit {
+        background: #00c9a7;
+        color: white;
+    }
+
+    .submit:hover {
+        background: #00a58c;
+    }
+
+    .copy {
+        background: #ff6b6b;
+        color: white;
+    }
+
+    .copy:hover {
+        background: #e55050;
+    }
+
+    .result-box {
+        margin-top: 15px;
+        background: rgba(0,0,0,0.3);
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        white-space: pre-line;
+        min-height: 80px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>📩 Contact Details</h2>
+
+    <form id="myForm">
+        <div class="field">
+            <label>Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
+        </div>
+
+        <div class="field">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Your email" required>
+        </div>
+
+        <div class="field">
+            <label>Gender</label>
+            <select id="gender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>Message</label>
+            <textarea id="message" rows="3" placeholder="Type message..."></textarea>
+        </div>
+
+        <button class="btn submit" type="submit">Send</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+
+    <button id="copyBtn" class="btn copy">Copy Info</button>
+</div>
+
+<script>
+    const form = document.getElementById("myForm");
+    const result = document.getElementById("result");
+    const copyBtn = document.getElementById("copyBtn");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let data = `
+Name: ${name.value}
+Email: ${email.value}
+Gender: ${gender.value}
+Message: ${message.value}
+        `;
+
+        result.textContent = data.trim();
+    });
+
+    copyBtn.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(result.textContent);
+            copyBtn.innerText = "Copied ✔";
+            setTimeout(() => copyBtn.innerText = "Copy Info", 2000);
+        } catch {
+            alert("Copy failed!");
+        }
+    });
+</script>
+
+</body>
+</html>

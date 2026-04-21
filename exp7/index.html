@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #0f172a;
+        color: white;
+    }
+
+    header {
+        text-align: center;
+        padding: 15px;
+        font-size: 22px;
+        background: #1e293b;
+        font-weight: bold;
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .card {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background: #3b82f6;
+        color: white;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #2563eb;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #020617;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #334155;
+    }
+
+    tr:nth-child(even) {
+        background: #1e293b;
+    }
+
+    #result {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #22c55e;
+    }
+</style>
+</head>
+
+<body>
+
+<header>📊 Student & Market Dashboard</header>
+
+<div class="container">
+
+    <!-- Student Section -->
+    <div class="card">
+        <h2>Student Array Operations</h2>
+
+        <div class="btn-group">
+            <button onclick="printNames()">Print Names</button>
+            <button onclick="marksAbove80()">Marks > 80</button>
+            <button onclick="countCourses()">Course Count</button>
+            <button onclick="showCSE()">CSE Only</button>
+            <button onclick="convertUpper()">Uppercase</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Marks</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Market Section -->
+    <div class="card">
+        <h2>Market Products</h2>
+
+        <div class="btn-group">
+            <button onclick="checkExpensive()">Check Expensive</button>
+            <button onclick="totalPrice()">Total Price</button>
+        </div>
+
+        <p id="result"></p>
+    </div>
+
+</div>
+
+<script>
+    const students = [
+        { name: "Bharath", marks: 85, course: "CSE" },
+        { name: "Ravi", marks: 72, course: "ECE" },
+        { name: "Anu", marks: 90, course: "CSE" },
+        { name: "Priya", marks: 60, course: "EEE" }
+    ];
+
+    const products = [
+        { name: "Phone", price: 15000 },
+        { name: "Laptop", price: 60000 },
+        { name: "Headphones", price: 2000 }
+    ];
+
+    function display(data) {
+        let rows = "";
+        data.forEach(s => {
+            rows += `<tr>
+                <td>${s.name}</td>
+                <td>${s.marks}</td>
+                <td>${s.course}</td>
+            </tr>`;
+        });
+        document.getElementById("tableBody").innerHTML = rows;
+    }
+
+    function printNames() {
+        display(students);
+    }
+
+    function marksAbove80() {
+        display(students.filter(s => s.marks > 80));
+    }
+
+    function countCourses() {
+        let count = {};
+        students.forEach(s => {
+            count[s.course] = (count[s.course] || 0) + 1;
+        });
+        alert(JSON.stringify(count));
+    }
+
+    function showCSE() {
+        display(students.filter(s => s.course === "CSE"));
+    }
+
+    function convertUpper() {
+        let upper = students.map(s => ({
+            ...s,
+            name: s.name.toUpperCase()
+        }));
+        display(upper);
+    }
+
+    function checkExpensive() {
+        let result = products.some(p => p.price > 50000);
+        document.getElementById("result").textContent =
+            result ? "There is an expensive product!" : "No expensive product.";
+    }
+
+    function totalPrice() {
+        let total = products.reduce((sum, p) => sum + p.price, 0);
+        document.getElementById("result").textContent =
+            "Total Price: ₹" + total;
+    }
+</script>
+
+</body>
+</html>
